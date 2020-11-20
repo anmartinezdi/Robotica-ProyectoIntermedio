@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<!-- 
+  UNIVERSIDAD NACIONAL DE COLOMBIA
+  DEPARTAMENTO DE ING. MECANICA Y MECATRONICA
+  LABORATORIO / ROBOTICA 2020-2
+  PROF: PEDRO CARDENAS
+
+  AUTHORS: GUSTAVO ADOLFO BERDUGO VELASQUEZ, JUAN SEBASTIAN HERNANDEZ REYES
+  -->
+
+<robot name="phantomXPincher1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Include -->
+  <xacro:include filename="$(find intermedio)/urdf/phantom_links-joints.xacro" />
+  <xacro:include filename="$(find intermedio)/urdf/phantom_parameters1.xacro" />
+  <!-- END - Include -->
+
+ <property name="M_PI" value="3.14159" />
+
+  <!-- Robot description -->
+
+  <link name="base_footprint"/>  <!-- Base link from Gazebo-->
+	<!-- Joint to fix the base so it does not move-->
+  <joint name="fixed" type="fixed"> 
+    <parent link="base_footprint"/>
+    <child link="${link_00_name}"/>
+  </joint>
+
+ <xacro:m_link_mesh name="${link_00_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="0 0 ${M_PI}" 
+    meshfile="package://intermedio/meshes/PincherBase.dae"
+    mass="0.561"
+    ixx="158.99447" ixy="-90.05531" ixz="-15.09679"
+    iyy="66.04413" iyz="-24.16496"
+    izz="212.74305"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint name="${joint_01_name}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0 0 ${0.8/15}"
+    parent="${link_00_name}" child="${link_01_name}"
+    l_effort="1000.0" l_lower="-2.61799" l_upper="2.617997" l_velocity="0.5" 
+  />
+
+<xacro:m_link_mesh name="${link_01_name}"
+    origin_xyz="0 0 ${0.45/15}"
+    origin_rpy="0 0 0" 
+    meshfile="package://intermedio/meshes/PincherLink1.dae"
+    mass="0.069"
+    ixx="0.73346" ixy="0" ixz="0"
+    iyy="0.14452" iyz="0"
+    izz="0.70391"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint name="${joint_02_name}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="${M_PI/2} ${-M_PI/2} 0" origin_xyz="0 0 ${1.08/15}"
+    parent="${link_01_name}" child="${link_02_name}"
+    l_effort="1000.0" l_lower="-2.0" l_upper="2.61799" l_velocity="0.5" 
+  />
+
+
+ <xacro:m_link_mesh name="${link_02_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="${M_PI/2} 0 ${M_PI/2}" 
+    meshfile="package://intermedio/meshes/PincherLink2.dae"
+    mass="0.113"
+    ixx="7.19462" ixy="-0.00352" ixz="0"
+    iyy="0.27381" iyz="0"
+    izz="7.10335"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint name="${joint_03_name}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="${1.605/15} 0 0"
+    parent="${link_02_name}" child="${link_03_name}"
+    l_effort="1000.0" l_lower="-2.52" l_upper="2.52" l_velocity="0.5" 
+  />
+
+ <xacro:m_link_mesh name="${link_03_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="${M_PI/2} 0 ${M_PI/2}" 
+    meshfile="package://intermedio/meshes/PincherLink3.dae"
+    mass="0.113"
+    ixx="7.19462" ixy="-0.00352" ixz="0"
+    iyy="0.27381" iyz="0"
+    izz="7.10335"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint name="${joint_04_name}" 
+    type="revolute"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="${1.605/15} 0 0"
+    parent="${link_03_name}" child="${link_04_name}"
+    l_effort="1000.0" l_lower="-1.94" l_upper="1.9" l_velocity="0.5" 
+  />
+
+ <xacro:m_link_mesh name="${link_04_name}"
+    origin_xyz="0 0 0"
+    origin_rpy="${M_PI/2} 0 ${M_PI/2}" 
+    meshfile="package://intermedio/meshes/PincherTool.dae"
+    mass="0.057"
+    ixx="0.25116" ixy="0.14167" ixz="0"
+    iyy="0.43376" iyz="0"
+    izz="0.57362"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint name="${joint_05_name}" 
+    type="prismatic"
+    axis_xyz="0 0 -1"
+    origin_rpy="0 0 0" origin_xyz="0 0 0"
+    parent="${link_04_name}" child="${link_05_name}"
+    l_effort="100.0" l_lower="0" l_upper="${0.225/15}" l_velocity="0.5" 
+  />
+
+ <xacro:m_link_mesh name="${link_05_name}"
+    origin_xyz="${1.074/15} 0 ${0.425/15}"
+    origin_rpy="${M_PI/2} ${M_PI} ${M_PI/2}" 
+    meshfile="package://intermedio/meshes/PincheFinger.dae"
+    mass="0.018"
+    ixx="0.10551" ixy="-0.04561" ixz="0.03274"
+    iyy="0.08842" iyz="0.0425"
+    izz="0.12897"	
+    scale="1 1 1"
+  />
+
+  <xacro:m_joint_mimic name="${joint_06_name}" 
+    type="prismatic"
+    axis_xyz="0 0 1"
+    origin_rpy="0 0 0" origin_xyz="0 0 0"
+    parent="${link_04_name}" child="${link_06_name}"
+    l_effort="100.0" l_lower="0" l_upper="${0.225/15}" l_velocity="0.5"
+    mimic_joint="${joint_05_name}" m_multiplier="1" m_offset="0" 
+  />
+
+ <xacro:m_link_mesh name="${link_06_name}"
+    origin_xyz="${1.074/15} 0 ${-0.425/15}"
+    origin_rpy="${M_PI/2} 0 ${M_PI/2}" 
+    meshfile="package://intermedio/meshes/PincheFinger.dae"
+    mass="0.057"
+    ixx="0.10551" ixy="-0.04561" ixz="0.03274"
+    iyy="0.08842" iyz="0.0425"
+    izz="0.12897"		
+    scale="1 1 1"
+  />
+
+
+  <create_noa name="NOA"
+    origin_xyz="${1/15} 0 0"
+    origin_rpy="-1.57 0 -1.57" 
+    parent="${link_04_name}"
+  />
+
+  <!-- END - Robot description -->
+  <!-- Plugin Gazebo -->
+  <gazebo>
+     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+     <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+ <legacyModeNS>true</legacyModeNS>
+     </plugin>
+  </gazebo>
+
+</robot>

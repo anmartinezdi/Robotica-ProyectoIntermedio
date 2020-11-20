@@ -1,0 +1,24 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50.0
+
+# Position Controllers ---------------------------------------
+
+joint11_position_controller:
+  type: position_controllers/JointPositionController
+  joint: cadera_1
+joint21_position_controller:
+  type: position_controllers/JointPositionController
+  joint: hombro_1
+joint31_position_controller:
+  type: position_controllers/JointPositionController
+  joint: codo_1
+joint41_position_controller:
+  type: position_controllers/JointPositionController
+  joint: mano_1
+joint51_position_controller:
+  type: position_controllers/JointPositionController
+  joint: gripper0_1
+joint61_position_controller:
+  type: position_controllers/JointPositionController
+  joint: gripper1_1
