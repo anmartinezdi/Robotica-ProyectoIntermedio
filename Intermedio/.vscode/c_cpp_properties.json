@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/gustavo/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_bumper2pc/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_controller_tutorial/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_driver/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_ftdi/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_gazebo_plugins/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_keyop/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_node/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_random_walker/include/**",
+        "/home/gustavo/catkin_ws/src/kobuki_safety_controller/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

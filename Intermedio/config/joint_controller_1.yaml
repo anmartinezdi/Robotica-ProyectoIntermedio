@@ -4,21 +4,21 @@ joint_state_controller:
 
 # Position Controllers ---------------------------------------
 
-joint11_position_controller:
+joint1_position_controller:
   type: position_controllers/JointPositionController
-  joint: cadera_1
-joint21_position_controller:
+  joint: cadera
+joint2_position_controller:
   type: position_controllers/JointPositionController
-  joint: hombro_1
-joint31_position_controller:
+  joint: hombro
+joint3_position_controller:
   type: position_controllers/JointPositionController
-  joint: codo_1
-joint41_position_controller:
+  joint: codo
+joint4_position_controller:
   type: position_controllers/JointPositionController
-  joint: mano_1
-joint51_position_controller:
+  joint: mano
+joint5_position_controller:
   type: position_controllers/JointPositionController
-  joint: gripper0_1
-joint61_position_controller:
+  joint: gripper0
+joint6_position_controller:
   type: position_controllers/JointPositionController
-  joint: gripper1_1
+  joint: gripper1

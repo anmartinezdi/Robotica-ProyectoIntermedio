@@ -8,7 +8,7 @@
   AUTHORS: GUSTAVO ADOLFO BERDUGO VELASQUEZ, JUAN SEBASTIAN HERNANDEZ REYES
   -->
 
-<robot name="phantomXPincher1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="phantomXPincher" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Include -->
   <xacro:include filename="$(find intermedio)/urdf/phantom_links-joints.xacro" />
