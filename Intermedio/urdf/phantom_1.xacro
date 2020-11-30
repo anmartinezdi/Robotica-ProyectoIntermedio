@@ -19,10 +19,10 @@
 
   <!-- Robot description -->
 
-  <link name="base_footprint"/>  <!-- Base link from Gazebo-->
+  <link name="world"/>  <!-- Base link from Gazebo-->
 	<!-- Joint to fix the base so it does not move-->
   <joint name="fixed" type="fixed"> 
-    <parent link="base_footprint"/>
+    <parent link="world"/>
     <child link="${link_00_name}"/>
   </joint>
 
@@ -163,10 +163,12 @@
   <!-- END - Robot description -->
   <!-- Plugin Gazebo -->
   <gazebo>
-     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-     <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
- <legacyModeNS>true</legacyModeNS>
-     </plugin>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
   </gazebo>
+
+  
 
 </robot>

@@ -23,6 +23,16 @@
         </include>
     </group>
 
+    <!-- Convert an xacro and put on parameter server -->
+    <param name="camera_description" command="$(find xacro)/xacro.py $(find intermedio)/urdf/camera.xacro" />
+    <!-- Spawn a robot into Gazebo -->
+    <node 
+    name="spawn_camara" 
+    pkg="gazebo_ros" 
+    type="spawn_model"  
+    output="screen" 
+    args="-param camera_description -urdf -model camera"  />  
+
     <!-- Gazebo Initialization -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="use_sim_time" value="true"/>
