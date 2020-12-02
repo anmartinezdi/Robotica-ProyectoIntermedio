@@ -7,7 +7,7 @@
         <include file="$(find intermedio)/launch/phantom.launch">
             <arg name="robot_name" value="phantomXPincher"/>
             <arg name="x" value="0.0"/>
-	        <arg name="y" value="0.5"/>
+	        <arg name="y" value="0.25"/>
 	        <arg name="z" value="0.0"/>
         </include>
     </group>
@@ -18,7 +18,7 @@
         <include file="$(find intermedio)/launch/phantom.launch">
             <arg name="robot_name" value="phantomXPincher2"/>
             <arg name="x" value="0.0"/>
-	        <arg name="y" value="-0.5"/>
+	        <arg name="y" value="-0.25"/>
 	        <arg name="z" value="0.0"/>
         </include>
     </group>
@@ -35,7 +35,8 @@
 
     <!-- Gazebo Initialization -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="use_sim_time" value="true"/>
+		<arg name="world_name" default="$(find intermedio)/world/mundo2.world"/>
+        <arg name="use_sim_time" value="true"/>
 	</include> 
 
     <!-- rqt -->
