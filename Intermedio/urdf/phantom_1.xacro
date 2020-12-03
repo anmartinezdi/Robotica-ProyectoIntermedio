@@ -16,6 +16,7 @@
   <!-- END - Include -->
 
  <property name="M_PI" value="3.14159" />
+ <property name="N_PI" value="-3.14159" />
 
   <!-- Robot description -->
 
@@ -42,7 +43,7 @@
     axis_xyz="0 0 1"
     origin_rpy="0 0 0" origin_xyz="0 0 ${0.8/15}"
     parent="${link_00_name}" child="${link_01_name}"
-    l_effort="1000.0" l_lower="-2.61799" l_upper="2.617997" l_velocity="0.5" 
+    l_effort="1000.0" l_lower="${N_PI}" l_upper="${M_PI}" l_velocity="0.5" 
   />
 
 <xacro:m_link_mesh name="${link_01_name}"
