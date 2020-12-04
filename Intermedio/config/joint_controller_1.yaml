@@ -7,18 +7,24 @@ joint_state_controller:
 joint1_position_controller:
   type: position_controllers/JointPositionController
   joint: cadera
+  pid: {p: 14, i: 0, d: 1}
 joint2_position_controller:
   type: position_controllers/JointPositionController
   joint: hombro
+  pid: {p: 14, i: 0, d: 1}
 joint3_position_controller:
   type: position_controllers/JointPositionController
   joint: codo
+  pid: {p: 14, i: 0, d: 5}
 joint4_position_controller:
   type: position_controllers/JointPositionController
   joint: mano
+  pid: {p: 14, i: 0, d: 1}
 joint5_position_controller:
   type: position_controllers/JointPositionController
   joint: gripper0
+  pid: {p: 5, i: 0.4, d: 2}
 joint6_position_controller:
   type: position_controllers/JointPositionController
   joint: gripper1
+  pid: {p: 4, i: 0.5, d: 2}
