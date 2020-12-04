@@ -35,7 +35,7 @@
 
     <!-- Gazebo Initialization -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" default="$(find intermedio)/world/mundo2.world"/>
+		<arg name="world_name" default="$(find intermedio)/world/mundo3.world"/>
         <arg name="use_sim_time" value="true"/>
 	</include> 
 
