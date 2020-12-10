@@ -20,7 +20,7 @@
             -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z)"
     /> 
 
-    <rosparam command="load" file="$(find intermedio)/config/joint_controller_1.yaml" />
+    <rosparam command="load" file="$(find intermedio)/config/joint_controller.yaml" />
 
     <!-- Controllers -->
 	<node name="controller_spawner" pkg="controller_manager" type="spawner"
